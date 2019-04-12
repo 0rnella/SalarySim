@@ -1,7 +1,7 @@
 {
-  "name": "boilermaker",
+  "name": "salarysim",
   "version": "2.0.0",
-  "description": "Some boilerplate code to get you started - get shakin'!",
+  "description": "Simulate how a salary could impact your life!",
   "engines": {
     "node": ">= 7.0.0"
   },
@@ -43,8 +43,6 @@
     "express-session": "^1.15.1",
     "history": "^4.9.0",
     "morgan": "^1.9.1",
-    "passport": "^0.4.0",
-    "passport-google-oauth": "^2.0.0",
     "pg": "^7.9.0",
     "pg-hstore": "^2.3.2",
     "prop-types": "^15.7.2",
@@ -55,8 +53,7 @@
     "redux": "^4.0.1",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.3.0",
-    "sequelize": "^5.3.1",
-    "socket.io": "^2.2.0"
+    "sequelize": "^5.3.1"
   },
   "devDependencies": {
     "@babel/core": "^7.4.3",

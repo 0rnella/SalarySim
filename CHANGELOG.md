@@ -5,8 +5,6 @@
 - connect-session-sequelize update to 6.0.0 from 4.1.0
 - history update to 4.9.0 from 4.6.3
 - morgan update to 1.9.1 from 1.8.1
-- passport update to 0.4.0 from 0.3.2
-- passport-google-oauth update to 2.0.0 from 1.0.0
 - pg update to 7.9.0 from 6.1.2
 - prop-types update to 15.7.2 from 15.6.2
 - **react-redux update to 5.0.7 from 5.0.2**
