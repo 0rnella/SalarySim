@@ -29,7 +29,7 @@ export const setExpenses = (category, number) => ({
 // /**
 //  * REDUCER
 //  */
-export default function(state = {}, action) {
+export default function(state = defaultExpenses, action) {
   switch (action.type) {
       case SET_EXPENSE: 
         const updatedState = {...state}
