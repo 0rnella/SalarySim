@@ -2,11 +2,11 @@ import React from 'react'
 
 class FormInput extends React.Component {
     render(){
-        const {inputType, label, value} = this.props
+        const {inputType, label} = this.props
         return(
             <div>
-                <h6>{label}</h6>
-                <input type={inputType} value={value}/>
+                <h5>{label}</h5>
+                <input type={inputType} value={0}/>
             </div>
         )
     }
