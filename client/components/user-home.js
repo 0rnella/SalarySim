@@ -1,5 +1,5 @@
 import React from 'react'
-import {Expenses} from './'
+import {Expenses, Debts} from './'
 
 /**
  * COMPONENT
@@ -10,6 +10,7 @@ export const Home = props => {
     <div>
       <h3>Welcome!</h3>
       <Expenses />
+      <Debts />
     </div>
   )
 }

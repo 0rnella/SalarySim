@@ -20,7 +20,7 @@ class Expenses extends React.Component {
     const {categories, expenses} = this.props
     return (
       <form>
-        <h3>Enter your expenses</h3>
+        <h3>Enter your monthly expenses</h3>
         {categories.map(category => (
           <FormInput
             key={category}
@@ -46,6 +46,5 @@ const mapState = state => ({
   expenses: state.expenses,
   categories: Object.keys(state.expenses)
 })
-const mapDispatch = dispatch => ({})
 
-export default connect(mapState, mapDispatch)(Expenses)
+export default connect(mapState)(Expenses)
