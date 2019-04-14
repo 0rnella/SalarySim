@@ -1,6 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {setDebtType, setDebtAmount, addDebt} from '../store'
+import {setDebtType, setDebtAmount, addDebt, fetchDebtsList} from '../store'
+import { DebtsList } from '.';
 
 /**
  * COMPONENT
@@ -24,25 +25,24 @@ class Debts extends React.Component {
     this.props.setDebtAmt(event.target.value)
   }
 
-  enterDebt(event){
+  enterDebt(event) {
     event.preventDefault()
-    this.props.addDebt()
+    this.props.enterDebt(this.props.debtToPost)
   }
 
   render() {
-    const {debtsList} = this.props
+    // const {debtsList, enterDebt, debtToPost} = this.props
     return (
       <div>
-        <h3>Enter your debts to pay off</h3>
-        {debtsList.map(
-          debtObj => <div>{debtObj.category}: {debtObj.amount}</div>
-        )}
+        <h3>Your debts:</h3>
+        <DebtsList />
+        <h3>Add a debt</h3>
         <form>
-            <h5>Debt type:</h5>
-            <input type="text"  onChange={() => this.setDebtType(event)}/>
-            <h5>Amount:</h5>
-            <input type="number" onChange={() => this.setDebtAmount(event)}/>
-            <button onSubmit={this.enterDebt}>Enter</button>
+          <h5>Debt type:</h5>
+          <input type="text" onChange={() => this.setDebtType(event)} />
+          <h5>Amount:</h5>
+          <input type="number" onChange={() => this.setDebtAmount(event)} />
+          <button onClick={() => this.enterDebt(event)}>Enter</button>
         </form>
       </div>
     )
@@ -54,14 +54,13 @@ class Debts extends React.Component {
  */
 
 const mapState = state => ({
-  debtsList: state.debts.debtsList,
-  debtToPost: state.debts.debtToPost,
+  debtToPost: state.debts.debtToPost
 })
 
 const mapDispatch = dispatch => ({
-  setDebtType: (type) => dispatch(setDebtType(type)),
-  setDebtAmt: (amount) => dispatch(setDebtAmount(amount)),
-  addDebt: () => dispatch(addDebt())
+  setDebtType: type => dispatch(setDebtType(type)),
+  setDebtAmt: amount => dispatch(setDebtAmount(amount)),
+  enterDebt: debtToPost => dispatch(addDebt(debtToPost)),
 })
 
 export default connect(mapState, mapDispatch)(Debts)

@@ -1,21 +1,29 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {FormInput} from './'
+import {fetchExpenses} from '../store'
 
 /**
  * COMPONENT
  */
 
 class Expenses extends React.Component {
-    constructor(props){
-        super(props)
-        this.getWiggleRoom = this.getWiggleRoom.bind(this)
-    }
-    getWiggleRoom(){
-        const summedCategoryExpenses = Object.values(this.props.expenses).reduce((a,b) => a+b)
-        const fifteenPercent = summedCategoryExpenses * 0.15
-        return fifteenPercent.toFixed(2)
-    }
+  constructor(props) {
+    super(props)
+    this.getWiggleRoom = this.getWiggleRoom.bind(this)
+  }
+  componentDidMount() {
+    this.props.getExpenses()
+  }
+
+  getWiggleRoom() {
+    const summedCategoryExpenses = Object.values(this.props.expenses).reduce(
+      (a, b) => a + b
+    )
+    const fifteenPercent = summedCategoryExpenses * 0.15
+    return fifteenPercent.toFixed(2)
+  }
+
   render() {
     const {categories, expenses} = this.props
     return (
@@ -29,10 +37,10 @@ class Expenses extends React.Component {
             value={expenses[category]}
           />
         ))}
-        <div>
-            <h5>15% Unforeseen / Wiggle room:</h5>
-            {this.getWiggleRoom()}
-        </div>
+        {categories.length && <div>
+          <h5>15% Unforeseen / Wiggle room:</h5>
+          {this.getWiggleRoom()}
+        </div>}
       </form>
     )
   }
@@ -47,4 +55,8 @@ const mapState = state => ({
   categories: Object.keys(state.expenses)
 })
 
-export default connect(mapState)(Expenses)
+const mapDispatch = dispatch => ({
+  getExpenses: () => dispatch(fetchExpenses())
+})
+
+export default connect(mapState, mapDispatch)(Expenses)
