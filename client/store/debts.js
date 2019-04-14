@@ -46,6 +46,15 @@ export const addDebt = (debtToPost) => async dispatch => {
   }
 }
 
+export const deleteDebt = (idx) => async dispatch => {
+  try {
+    const res = await axios.delete(`/api/debts/${idx}`)
+    dispatch(updateDebtsList(res.data))
+  } catch (error) {
+    console.error(error)
+  }
+}
+
 export const fetchDebtsList = () => async dispatch => {
   try {
     const res = await axios.get('/api/debts')
