@@ -20,7 +20,7 @@ class DebtsList extends React.Component {
     return (
       <div>
         {debtsList.length? debtsList.map((debtObj, idx) => (
-          <div key={debtObj.debtType}>
+          <div key={idx}>
             <p>
               {debtObj.debtType}: {debtObj.amount}
             </p>

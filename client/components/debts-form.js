@@ -1,7 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {setDebtType, setDebtAmount, addDebt, fetchDebtsList} from '../store'
-import { DebtsList } from '.';
+import {setDebtToPost, addDebt} from '../store'
+import { DebtsList } from './';
 
 /**
  * COMPONENT
@@ -10,19 +10,14 @@ import { DebtsList } from '.';
 class Debts extends React.Component {
   constructor(props) {
     super(props)
-    this.setDebtType = this.setDebtType.bind(this)
-    this.setDebtAmount = this.setDebtAmount.bind(this)
+    this.editDebtToPost = this.editDebtToPost.bind(this)
     this.enterDebt = this.enterDebt.bind(this)
   }
 
-  setDebtType(event) {
+  editDebtToPost(event) {
     event.preventDefault()
-    this.props.setDebtType(event.target.value)
-  }
-
-  setDebtAmount(event) {
-    event.preventDefault()
-    this.props.setDebtAmt(event.target.value)
+    const {name, value} = event.target
+    this.props.setDebtToPost(name, value)
   }
 
   enterDebt(event) {
@@ -31,7 +26,7 @@ class Debts extends React.Component {
   }
 
   render() {
-    // const {debtsList, enterDebt, debtToPost} = this.props
+    const {debtToPost} = this.props
     return (
       <div>
         <h3>Your debts:</h3>
@@ -39,9 +34,13 @@ class Debts extends React.Component {
         <h3>Add a debt</h3>
         <form>
           <h5>Debt type:</h5>
-          <input type="text" onChange={() => this.setDebtType(event)} />
+          <input type="text" name="debtType" value={debtToPost.debtType} onChange={() => this.editDebtToPost(event)} />
           <h5>Amount:</h5>
-          <input type="number" onChange={() => this.setDebtAmount(event)} />
+          <input type="number" name="amount" value={debtToPost.amount} onChange={() => this.editDebtToPost(event)} />
+          <h5>Timeline to pay off:</h5>
+          <p><span>Within</span>
+          <input type="number" name="timeline" value={debtToPost.timeline} onChange={() => this.editDebtToPost(event)} />
+          <span>months of getting job</span></p>
           <button onClick={() => this.enterDebt(event)}>Enter</button>
         </form>
       </div>
@@ -58,8 +57,7 @@ const mapState = state => ({
 })
 
 const mapDispatch = dispatch => ({
-  setDebtType: type => dispatch(setDebtType(type)),
-  setDebtAmt: amount => dispatch(setDebtAmount(amount)),
+  setDebtToPost: type => dispatch(setDebtToPost(type)),
   enterDebt: debtToPost => dispatch(addDebt(debtToPost)),
 })
 

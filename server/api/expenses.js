@@ -7,7 +7,7 @@ router.get('/', async (req, res, next) => {
       req.session.expenses = {
         Rent: 0,
         Food: 0,
-        Entertainment: 0,
+        'Fun money': 0,
         'Fitness/vacation/education': 0,
         'Clothing/home': 0,
         Transportation: 0,

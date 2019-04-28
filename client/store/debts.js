@@ -3,8 +3,7 @@ import axios from 'axios'
 // /**
 //  * ACTION TYPES
 //  */
-const SET_TYPE_OF_DEBT_TO_POST = 'SET_TYPE_OF_DEBT_TO_POST'
-const SET_AMOUNT_OF_DEBT_TO_POST = 'SET_AMOUNT_OF_DEBT_TO_POST'
+const SET_DEBT_TO_POST = 'SET_DEBT_TO_POST'
 const UPDATE_DEBT_LIST = 'UPDATE_DEBTS_LIST'
 
 // /**
@@ -12,8 +11,9 @@ const UPDATE_DEBT_LIST = 'UPDATE_DEBTS_LIST'
 //  */
 const defaultDebt = {
   debtToPost: {
-    debtType: '',
-    amount: 0
+    debtType: 'Grace Hopper Program',
+    amount: 16910,
+    timeline: 9
   },
   debtsList: [],
 }
@@ -21,13 +21,10 @@ const defaultDebt = {
 // /**
 //  * ACTION CREATORS
 //  */
-export const setDebtType = debtType => ({
-  type: SET_TYPE_OF_DEBT_TO_POST,
-  debtType
-})
-export const setDebtAmount = amount => ({
-  type: SET_AMOUNT_OF_DEBT_TO_POST,
-  amount
+export const setDebtToPost = (name, value) => ({
+  type: SET_DEBT_TO_POST,
+  name,
+  value
 })
 const updateDebtsList = debtsList => ({
   type: UPDATE_DEBT_LIST,
@@ -69,12 +66,10 @@ export const fetchDebtsList = () => async dispatch => {
 //  */
 export default function(state = defaultDebt, action) {
   switch (action.type) {
-    case SET_TYPE_OF_DEBT_TO_POST:
-      return {...state, debtToPost: {...state.debtToPost, debtType: action.debtType}}
-    case SET_AMOUNT_OF_DEBT_TO_POST:
-      return {...state, debtToPost: {...state.debtToPost, amount: action.amount}}
+    case SET_DEBT_TO_POST:
+      return {...state, debtToPost: {...state.debtToPost}}
     case UPDATE_DEBT_LIST:
-      return {...state, debtsList: action.debtsList, debtToPost: {debtType: '', amount: 0}}
+      return {...state, debtsList: action.debtsList}
     default:
       return state
   }
