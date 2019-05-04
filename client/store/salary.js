@@ -21,9 +21,9 @@ const gotSalary = (salary) => ({
 // /**
 //  * THUNK CREATORS
 //  */
-export const setSalary = (debtToPost) => async dispatch => {
+export const setSalary = (salary) => async dispatch => {
   try {
-    const res = await axios.post('/api/salary', debtToPost)
+    const res = await axios.post('/api/salary', salary)
     dispatch(gotSalary(res.data))
   } catch (error) {
     console.error(error)
