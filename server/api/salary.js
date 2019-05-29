@@ -14,7 +14,7 @@ router.get('/', async (req, res, next) => {
 
 router.post('/', async (req, res, next) => {
   try {
-    req.session.salary = req.body
+    req.session.salary = req.body.salary
     res.json(req.session.salary)
   } catch (err) {
     next(err)

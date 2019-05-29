@@ -16,8 +16,10 @@ class Debts extends React.Component {
 
   editDebtToPost(event) {
     event.preventDefault()
-    const {name, value} = event.target
-    this.props.setDebtToPost(name, value)
+    const parameter = event.target.name
+    const value = event.target.value
+    this.props.setDebtToPost({parameter, value})
+    this.forceUpdate()
   }
 
   enterDebt(event) {

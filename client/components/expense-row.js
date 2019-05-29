@@ -2,7 +2,7 @@ import React from 'react'
 import {connect} from 'react-redux'
 import {setExpense} from '../store'
 
-class FormInput extends React.Component {
+class ExpenseRow extends React.Component {
   constructor(props) {
     super(props)
     this.changeValue = this.changeValue.bind(this)
@@ -17,14 +17,16 @@ class FormInput extends React.Component {
   render() {
     const {inputType, label, value} = this.props
     return (
-      <div>
-        <h5>{label}</h5>
-        <input
-          type={inputType}
-          value={value}
-          onChange={() => this.changeValue(event)}
-        />
-      </div>
+      <tr>
+        <td>{label}</td>
+        <td>
+          <input
+            type={inputType}
+            value={value}
+            onChange={() => this.changeValue(event)}
+          />
+        </td>
+      </tr>
     )
   }
 }
@@ -33,4 +35,4 @@ const mapDispatch = dispatch => ({
   changeExpense: (category, value) => dispatch(setExpense(category, value))
 })
 
-export default connect(null, mapDispatch)(FormInput)
+export default connect(null, mapDispatch)(ExpenseRow)

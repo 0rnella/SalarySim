@@ -21,10 +21,9 @@ const defaultDebt = {
 // /**
 //  * ACTION CREATORS
 //  */
-export const setDebtToPost = (name, value) => ({
+export const setDebtToPost = (debtInfo) => ({
   type: SET_DEBT_TO_POST,
-  name,
-  value
+  debtInfo,
 })
 const updateDebtsList = debtsList => ({
   type: UPDATE_DEBT_LIST,
@@ -67,7 +66,9 @@ export const fetchDebtsList = () => async dispatch => {
 export default function(state = defaultDebt, action) {
   switch (action.type) {
     case SET_DEBT_TO_POST:
-      return {...state, debtToPost: {...state.debtToPost}}
+      const updatedDebtToPost = state.debtToPost
+      updatedDebtToPost[action.debtInfo.parameter] = action.debtInfo.value
+      return {...state, debtToPost: updatedDebtToPost}
     case UPDATE_DEBT_LIST:
       return {...state, debtsList: action.debtsList}
     default:

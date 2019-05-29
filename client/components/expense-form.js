@@ -1,6 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {FormInput} from './'
+import {ExpenseRow} from './'
 import {fetchExpenses} from '../store'
 
 /**
@@ -27,21 +27,23 @@ class Expenses extends React.Component {
   render() {
     const {categories, expenses} = this.props
     return (
-      <form>
-        <h3>Enter your monthly expenses</h3>
+      <table>
+      <tbody>
         {categories.map(category => (
-          <FormInput
+          <ExpenseRow
             key={category}
             label={category}
             inputType="number"
             value={expenses[category]}
           />
         ))}
-        {categories.length && <div>
-          <h5>15% Unforeseen / Wiggle room:</h5>
-          {this.getWiggleRoom()}
-        </div>}
-      </form>
+        {categories.length &&
+        <tr>
+          <td>15% Unforeseen / Wiggle room:</td>
+          <td>{this.getWiggleRoom()}</td>
+        </tr>}
+        </tbody>
+      </table>
     )
   }
 }

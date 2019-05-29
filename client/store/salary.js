@@ -15,7 +15,7 @@ const defaultSalary = 80000
 //  */
 const gotSalary = (salary) => ({
   type: SET_SALARY,
-  salary,
+  salary
 })
 
 // /**
@@ -23,7 +23,7 @@ const gotSalary = (salary) => ({
 //  */
 export const setSalary = (salary) => async dispatch => {
   try {
-    const res = await axios.post('/api/salary', salary)
+    const res = await axios.post('/api/salary', {salary})
     dispatch(gotSalary(res.data))
   } catch (error) {
     console.error(error)
