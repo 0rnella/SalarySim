@@ -4,16 +4,17 @@ import axios from 'axios'
 //  * ACTION TYPES
 //  */
 const SET_DEBT_TO_POST = 'SET_DEBT_TO_POST'
+const RESET_DEBT_TO_POST = 'RESET_DEBT_TO_POST'
 const UPDATE_DEBT_LIST = 'UPDATE_DEBTS_LIST'
 
 // /**
 //  * INITIAL STATE
 //  */
 const defaultDebt = {
-  debtToPost: {
-    debtType: 'Grace Hopper Program',
-    amount: 16910,
-    timeline: 9
+  debtToPost: { 
+    debtType: '',
+    amount: 0,
+    timeline: 0
   },
   debtsList: [],
 }
@@ -25,6 +26,11 @@ export const setDebtToPost = (debtInfo) => ({
   type: SET_DEBT_TO_POST,
   debtInfo,
 })
+
+const resetDebtToPost = () => ({
+  type: RESET_DEBT_TO_POST
+})
+
 const updateDebtsList = debtsList => ({
   type: UPDATE_DEBT_LIST,
   debtsList
@@ -36,6 +42,7 @@ const updateDebtsList = debtsList => ({
 export const addDebt = (debtToPost) => async dispatch => {
   try {
     const res = await axios.post('/api/debts', debtToPost)
+    dispatch(resetDebtToPost())
     dispatch(updateDebtsList(res.data))
   } catch (error) {
     console.error(error)
@@ -69,6 +76,8 @@ export default function(state = defaultDebt, action) {
       const updatedDebtToPost = state.debtToPost
       updatedDebtToPost[action.debtInfo.parameter] = action.debtInfo.value
       return {...state, debtToPost: updatedDebtToPost}
+    case RESET_DEBT_TO_POST:
+      return {...state, debtToPost: defaultDebt.debtToPost}
     case UPDATE_DEBT_LIST:
       return {...state, debtsList: action.debtsList}
     default:

@@ -19,9 +19,8 @@ describe('Salary routes', () => {
 
     // it('POST /api/salary/', async () => {
     //   const res = await request(app)
-    //     .post('/api/salary/', 80000)
+    //     .post('/api/salary/', {salary: 80000})
     //     .expect(200)
-
     //   expect(res.body).to.be.a('number')
     //   expect(res.body).to.equal(80000)
     // })

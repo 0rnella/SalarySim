@@ -28,20 +28,19 @@ class Expenses extends React.Component {
     const {categories, expenses} = this.props
     return (
       <table>
-      <tbody>
-        {categories.map(category => (
-          <ExpenseRow
-            key={category}
-            label={category}
-            inputType="number"
-            value={expenses[category]}
-          />
-        ))}
-        {categories.length &&
-        <tr>
-          <td>15% Unforeseen / Wiggle room:</td>
-          <td>{this.getWiggleRoom()}</td>
-        </tr>}
+        <tbody>
+          {categories.map(category => (
+            <ExpenseRow
+              key={category}
+              label={category}
+              inputType="number"
+              value={expenses[category]}
+            />
+          ))}
+          <tr>
+            <td>15% Unforeseen / Wiggle room:</td>
+            <td>{categories.length && this.getWiggleRoom()}</td>
+          </tr>
         </tbody>
       </table>
     )

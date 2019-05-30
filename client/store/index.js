@@ -6,8 +6,9 @@ import user from './user'
 import expenses from './expenses'
 import debts from './debts'
 import salary from './salary'
+import savings from './savings'
 
-const reducer = combineReducers({user, expenses, debts, salary})
+const reducer = combineReducers({user, expenses, debts, salary, savings})
 const middleware = composeWithDevTools(
   applyMiddleware(thunkMiddleware, createLogger({collapsed: true}))
 )
@@ -18,3 +19,4 @@ export * from './user'
 export * from './expenses'
 export * from './debts'
 export * from './salary'
+export * from './savings'

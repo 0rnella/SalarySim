@@ -1,5 +1,5 @@
 import React from 'react'
-import {Expenses, Debts, SalarySelector} from '.'
+import {Expenses, Debts, SalarySelector, SavingsGoal} from '.'
 
 /**
  * COMPONENT
@@ -12,6 +12,7 @@ export const Home = props => {
       <Expenses />
       <Debts />
       <SalarySelector />
+      <SavingsGoal />
     </div>
   )
 }
