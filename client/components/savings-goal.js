@@ -18,23 +18,18 @@ class SavingsGoal extends React.Component {
     return (
       <div>
         <h5>Savings goal for 12 months from job offer</h5>
-        {savingsGoal ? <p>{savingsGoal}</p> :
-            <input
-          type="number"
-          onChange={() => this.changeGoal(event)}
-        />
-        }
+            <input type="number" onChange={() => this.changeGoal(event)} />
       </div>
     )
   }
 }
 
 const mapState = state => ({
-    savingsGoal: state.savingsGoal
+  savingsGoal: state.savings
 })
 
 const mapDispatch = dispatch => ({
-  changeSavingsGoal: (amount) => dispatch(setSavingsGoal(amount))
+  changeSavingsGoal: amount => dispatch(setSavingsGoal(amount))
 })
 
 export default connect(mapState, mapDispatch)(SavingsGoal)
