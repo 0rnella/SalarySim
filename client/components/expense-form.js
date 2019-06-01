@@ -28,6 +28,10 @@ class Expenses extends React.Component {
     const {categories, expenses} = this.props
     return (
       <table>
+      <thead>
+        <td>Category</td>
+        <td>Amount</td>
+      </thead>
         <tbody>
           {categories.map(category => (
             <ExpenseRow

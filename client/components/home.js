@@ -1,18 +1,14 @@
 import React from 'react'
-import {Expenses, Debts, SalarySelector, SavingsGoal} from '.'
-
+import {InputSidebar, Insights} from '.'
 /**
  * COMPONENT
  */
 export const Home = props => {
 
   return (
-    <div>
-      <h3>Welcome!</h3>
-      <Expenses />
-      <Debts />
-      <SalarySelector />
-      <SavingsGoal />
+    <div className="row">
+      <InputSidebar />
+      <Insights />
     </div>
   )
 }

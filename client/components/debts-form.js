@@ -31,16 +31,14 @@ class Debts extends React.Component {
     const {debtToPost} = this.props
     return (
       <div>
-        <h3>Your debts:</h3>
         <DebtsList />
-        <h3>Add a debt</h3>
+        <h6>Add a debt</h6>
         <form>
-          <h5>Debt type:</h5>
+          <p>Debt type:</p>
           <input type="text" name="debtType" value={debtToPost.debtType} onChange={() => this.editDebtToPost(event)} />
-          <h5>Amount:</h5>
+          <p>Amount:</p>
           <input type="number" name="amount" value={debtToPost.amount} onChange={() => this.editDebtToPost(event)} />
-          <h5>Timeline to pay off:</h5>
-          <p><span>Within</span>
+          <p>Timeline to pay off:<span> within</span>
           <input type="number" name="timeline" value={debtToPost.timeline} onChange={() => this.editDebtToPost(event)} />
           <span>months of getting job</span></p>
           <button onClick={() => this.enterDebt(event)}>Enter</button>
