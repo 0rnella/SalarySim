@@ -1,7 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {setDebtToPost, addDebt} from '../store'
-import { DebtsList } from './';
+import {DebtsList} from './'
 
 /**
  * COMPONENT
@@ -31,16 +31,34 @@ class Debts extends React.Component {
     const {debtToPost} = this.props
     return (
       <div>
+        <h4>Debts</h4>
         <DebtsList />
         <h6>Add a debt</h6>
         <form>
           <p>Debt type:</p>
-          <input type="text" name="debtType" value={debtToPost.debtType} onChange={() => this.editDebtToPost(event)} />
+          <input
+            type="text"
+            name="debtType"
+            value={debtToPost.debtType}
+            onChange={() => this.editDebtToPost(event)}
+          />
           <p>Amount:</p>
-          <input type="number" name="amount" value={debtToPost.amount} onChange={() => this.editDebtToPost(event)} />
-          <p>Timeline to pay off:<span> within</span>
-          <input type="number" name="timeline" value={debtToPost.timeline} onChange={() => this.editDebtToPost(event)} />
-          <span>months of getting job</span></p>
+          <input
+            type="number"
+            name="amount"
+            value={debtToPost.amount}
+            onChange={() => this.editDebtToPost(event)}
+          />
+          <p>
+            Timeline to pay off:<span> within</span>
+            <input
+              type="number"
+              name="timeline"
+              value={debtToPost.timeline}
+              onChange={() => this.editDebtToPost(event)}
+            />
+            <span>months of getting job</span>
+          </p>
           <button onClick={() => this.enterDebt(event)}>Enter</button>
         </form>
       </div>
@@ -58,7 +76,7 @@ const mapState = state => ({
 
 const mapDispatch = dispatch => ({
   setDebtToPost: type => dispatch(setDebtToPost(type)),
-  enterDebt: debtToPost => dispatch(addDebt(debtToPost)),
+  enterDebt: debtToPost => dispatch(addDebt(debtToPost))
 })
 
 export default connect(mapState, mapDispatch)(Debts)

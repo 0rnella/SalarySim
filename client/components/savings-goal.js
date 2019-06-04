@@ -17,8 +17,9 @@ class SavingsGoal extends React.Component {
     const {savingsGoal} = this.props
     return (
       <div>
-        <h5>Savings goal for 12 months from job offer</h5>
-            <input type="number" onChange={() => this.changeGoal(event)} />
+        <h4>Savings Goal</h4>
+        <p>12 months after getting job</p>
+        <input type="number" onChange={() => this.changeGoal(event)} />
       </div>
     )
   }

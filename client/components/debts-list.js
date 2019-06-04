@@ -22,7 +22,7 @@ class DebtsList extends React.Component {
         {debtsList.length? debtsList.map((debtObj, idx) => (
           <div key={idx} id='debt'>
             <p>
-              {debtObj.debtType}: {debtObj.amount}
+              {debtObj.debtType}: {debtObj.amount} in {debtObj.timeline} months.
             </p>
             <button onClick={() => removeDebt(idx)}>X</button>
           </div>

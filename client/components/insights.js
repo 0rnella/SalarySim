@@ -1,5 +1,5 @@
 import React from 'react'
-import {OverviewBar, FinancialChart} from '.'
+import {OverviewBar, Charts} from '.'
 import {connect} from 'react-redux'
 
 /**
@@ -22,9 +22,9 @@ export const Insights = props => {
   let monthlyExpenses = Math.floor(1.15 * sum(Object.values(expenses)))
   let sumDebts = sum(debts, 'amount')
   return (
-    <div className="col l9">
+    <div className="content-container-sidebar">
       <OverviewBar sumDebts={sumDebts} monthlyExpenses={monthlyExpenses} monthlySalary={monthlySalary} savingsGoal={savingsGoal}/>
-      <FinancialChart months={12} debts={debts} monthlyExpenses={monthlyExpenses} monthlySalary={monthlySalary} />
+      <Charts months={12} debts={debts} monthlyExpenses={monthlyExpenses} monthlySalary={monthlySalary} />
     </div>
   )
 }

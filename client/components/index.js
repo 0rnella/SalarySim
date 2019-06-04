@@ -3,6 +3,7 @@
  * This way, we can import all of our components from the same place, rather than
  * having to figure out which file they belong to!
  */
+export {default as Charts} from './charts'
 export {default as Debts} from './debts-form'
 export {default as DebtsList} from './debts-list'
 export {default as Expenses} from './expense-form'

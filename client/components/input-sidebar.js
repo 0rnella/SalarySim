@@ -7,14 +7,10 @@ import {Expenses, Debts, SalarySelector, SavingsGoal} from '.'
 export const InputSidebar = props => {
 
   return (
-    <div  className="col l3 z-depth-2">
-      <h4>Expenses</h4> 
+    <div  className="z-depth-2" id="sidebar"> 
       <Expenses />
-      <h4>Debts</h4>
       <Debts />
-      <h4>Salary</h4>
       <SalarySelector />
-      <h4>Savings Goal</h4>
       <SavingsGoal />
     </div>
   )
