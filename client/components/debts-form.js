@@ -50,14 +50,13 @@ class Debts extends React.Component {
             onChange={() => this.editDebtToPost(event)}
           />
           <p>
-            Timeline to pay off:<span> within</span>
+            Number of months to pay over:
             <input
               type="number"
               name="timeline"
               value={debtToPost.timeline}
               onChange={() => this.editDebtToPost(event)}
             />
-            <span>months of getting job</span>
           </p>
           <button onClick={() => this.enterDebt(event)}>Enter</button>
         </form>

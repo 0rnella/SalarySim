@@ -73,8 +73,8 @@ form div {
   left: 25vw;
 }
 
-#financial-chart {
-  margin: 3%;
+.financial-chart {
+  margin: 3% !important;
 }
 
 #sidebar {

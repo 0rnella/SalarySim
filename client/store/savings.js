@@ -32,7 +32,6 @@ export const setSavingsGoal = savingsGoal => async dispatch => {
 
 export const getSavingsGoal = () => async dispatch => {
   try {
-    console.log('in the get savings goal thunk')
     const res = await axios.get('/api/savings')
     dispatch(gotSavingsGoal(res.data))
   } catch (error) {

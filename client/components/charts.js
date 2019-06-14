@@ -1,5 +1,5 @@
 import React from 'react'
-import {FinancialChart} from '.'
+import {FinancialChart, SavingsStatus} from '.'
 
 /**
  * COMPONENT
@@ -55,7 +55,17 @@ class Charts extends React.Component {
     )
     return (
       <div className="row">
-        <FinancialChart financialData={finances} monthlySalary={monthlySalary} />
+        <FinancialChart
+          financialData={finances}
+          monthlySalary={monthlySalary}
+        />
+        <SavingsStatus
+          monthlyExpenses={monthlyExpenses}
+          monthlySalary={monthlySalary}
+          payOneMonth={this.payOneMonth}
+          goal={savingsGoal}
+          debts={debts}
+        />
       </div>
     )
   }

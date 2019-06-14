@@ -4,7 +4,7 @@ import {VictoryStack, VictoryChart, VictoryBar, VictoryAxis} from 'victory'
 function FinancialChart (props) {
     const {financialData = [], monthlySalary} = props
     return (
-      <div className="card-panel" id="financial-chart">
+      <div className="card-panel financial-chart">
         <VictoryChart>
           <VictoryStack
             vertical

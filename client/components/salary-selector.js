@@ -21,7 +21,7 @@ class SalarySelector extends React.Component {
     const {salary} = this.props
     return (
       <div>
-        <h4>Net Salary</h4>
+        <h4>Yearly Income (after taxes)</h4>
         <p>
           Note: obtain the net salary from gross at{' '}
           <a href="https://neuvoo.com/tax-calculator/?iam=&uet_calculate=calculate&salary=80000&from=year&region=New+York&category=Engineering">
