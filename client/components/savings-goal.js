@@ -1,11 +1,15 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {setSavingsGoal} from '../store'
+import {setSavingsGoal, getSavingsGoal} from '../store'
 
 class SavingsGoal extends React.Component {
   constructor(props) {
     super(props)
     this.changeGoal = this.changeGoal.bind(this)
+  }
+
+  componentDidMount (){
+    this.props.fetchSavingsGoal()
   }
 
   changeGoal(event) {
@@ -18,8 +22,7 @@ class SavingsGoal extends React.Component {
     return (
       <div>
         <h4>Savings Goal</h4>
-        <p>12 months after getting job</p>
-        <input type="number" onChange={() => this.changeGoal(event)} />
+        <input value={savingsGoal} type="number" onChange={() => this.changeGoal(event)} />
       </div>
     )
   }
@@ -30,7 +33,8 @@ const mapState = state => ({
 })
 
 const mapDispatch = dispatch => ({
-  changeSavingsGoal: amount => dispatch(setSavingsGoal(amount))
+  changeSavingsGoal: amount => dispatch(setSavingsGoal(amount)),
+  fetchSavingsGoal: () => dispatch(getSavingsGoal())
 })
 
 export default connect(mapState, mapDispatch)(SavingsGoal)

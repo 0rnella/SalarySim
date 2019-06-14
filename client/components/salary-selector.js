@@ -1,11 +1,15 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {setSalary} from '../store'
+import {setSalary, getSalary} from '../store'
 
 class SalarySelector extends React.Component {
   constructor(props) {
     super(props)
     this.changeValue = this.changeValue.bind(this)
+  }
+
+  componentDidMount(){
+    this.props.fetchSalary()
   }
 
   changeValue(event) {
@@ -28,6 +32,7 @@ class SalarySelector extends React.Component {
           type="range"
           min="0"
           max="150"
+          value={salary/1000}
           onChange={() => this.changeValue(event)}
         />
         Currently selected: Net: ${salary}
@@ -41,7 +46,8 @@ const mapState = state => ({
 })
 
 const mapDispatch = dispatch => ({
-  changeSalary: salary => dispatch(setSalary(salary))
+  changeSalary: salary => dispatch(setSalary(salary)),
+  fetchSalary: () => dispatch(getSalary())
 })
 
 export default connect(mapState, mapDispatch)(SalarySelector)
