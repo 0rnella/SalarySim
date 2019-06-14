@@ -33,6 +33,7 @@ form div {
   width: 100%;
   position: fixed;
   height: 84px;
+  padding: 0 3vw 0 3vw;
 }
 
 #overview-row{

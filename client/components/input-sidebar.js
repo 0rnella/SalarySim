@@ -8,10 +8,10 @@ export const InputSidebar = props => {
 
   return (
     <div  className="z-depth-2" id="sidebar"> 
-      <Expenses />
-      <Debts />
       <SalarySelector />
       <SavingsGoal />
+      <Expenses />
+      <Debts />
     </div>
   )
 }
