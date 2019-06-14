@@ -8,7 +8,7 @@ const SET_SALARY = 'SET_SALARY'
 // /**
 //  * INITIAL STATE
 //  */
-const defaultSalary = 80000
+const defaultSalary = 50000
 
 // /**
 //  * ACTION CREATORS
