@@ -8,7 +8,7 @@ function FinancialChart (props) {
         <VictoryChart>
           <VictoryStack
             vertical
-            style={{data: {strokeWidth: 1, fillOpacity: 0.8, width: 6}}}
+            style={{data: {width: 15}}}
           >
             {financialData.map(category => (
               <VictoryBar

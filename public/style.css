@@ -75,6 +75,7 @@ form div {
 
 .financial-chart {
   margin: 3% !important;
+  display: flex;
 }
 
 #sidebar {

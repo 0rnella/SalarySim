@@ -24,7 +24,7 @@ export const Insights = props => {
   return (
     <div className="content-container-sidebar indigo lighten-5">
       <OverviewBar sumDebts={sumDebts} monthlyExpenses={monthlyExpenses} monthlySalary={monthlySalary} savingsGoal={savingsGoal}/>
-      <Charts months={12} debts={debts} monthlyExpenses={monthlyExpenses} monthlySalary={monthlySalary} savingsGoal={savingsGoal} />
+      <Charts months={12} debts={debts} monthlyExpenses={monthlyExpenses} monthlySalary={monthlySalary} savingsGoal={savingsGoal} detailedExpenses={expenses} />
     </div>
   )
 }
