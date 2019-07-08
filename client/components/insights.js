@@ -22,9 +22,21 @@ export const Insights = props => {
   let monthlyExpenses = Math.floor(1.15 * sum(Object.values(expenses)))
   let sumDebts = sum(debts, 'amount')
   return (
-    <div className="content-container-sidebar indigo lighten-5">
-      <OverviewBar sumDebts={sumDebts} monthlyExpenses={monthlyExpenses} monthlySalary={monthlySalary} savingsGoal={savingsGoal}/>
-      <Charts months={12} debts={debts} monthlyExpenses={monthlyExpenses} monthlySalary={monthlySalary} savingsGoal={savingsGoal} detailedExpenses={expenses} />
+    <div className="content-container-sidebar">
+      <OverviewBar
+        sumDebts={sumDebts}
+        monthlyExpenses={monthlyExpenses}
+        monthlySalary={monthlySalary}
+        savingsGoal={savingsGoal}
+      />
+      <Charts
+        months={12}
+        debts={debts}
+        monthlyExpenses={monthlyExpenses}
+        monthlySalary={monthlySalary}
+        savingsGoal={savingsGoal}
+        detailedExpenses={expenses}
+      />
     </div>
   )
 }
